@@ -133,8 +133,8 @@ followersArray.map((element) => {
     .get(element)
     .then((response) => {
       // console.log(response.data);
-      const followersInfo = createCard;
-      mainCard.appendChild(followersInfo(response.data));
+      const followersData = createCard;
+      mainCard.appendChild(followersData(response.data));
     })
     .catch((error) => {
       console.log("Oops! No info found.", error);
