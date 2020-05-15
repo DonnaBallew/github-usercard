@@ -48,17 +48,6 @@ getPromise
     user, and adding that card to the DOM.
 */
 
-const followersArray = [
-  "https://api.github.com/users/tetondan",
-  "https://api.github.com/users/dustinmyers",
-  "https://api.github.com/users/luishrd",
-  "https://api.github.com/users/bigknell",
-  "https://api.github.com/users/marksayers46",
-  "https://api.github.com/users/kmilliner888",
-  "https://api.github.com/users/rbabaci1",
-  "https://api.github.com/users/schoell411",
-];
-
 /*
   STEP 3: Create a function that accepts a single object as its only argument.
     Using DOM methods and properties, create and return the following markup:
@@ -127,6 +116,30 @@ function createCard(info) {
 
   return card;
 }
+
+const followersArray = [
+  "https://api.github.com/users/tetondan",
+  "https://api.github.com/users/dustinmyers",
+  "https://api.github.com/users/luishrd",
+  "https://api.github.com/users/bigknell",
+  "https://api.github.com/users/marksayers46",
+  "https://api.github.com/users/kmilliner888",
+  "https://api.github.com/users/rbabaci1",
+  "https://api.github.com/users/schoell411",
+];
+
+followersArray.map((element) => {
+  axios
+    .get(element)
+    .then((response) => {
+      // console.log(response.data);
+      const followersInfo = createCard;
+      mainCard.appendChild(followersInfo(response.data));
+    })
+    .catch((error) => {
+      console.log("Oops! No info found.", error);
+    });
+});
 
 /*
   List of LS Instructors Github username's:
